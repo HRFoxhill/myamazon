@@ -130,10 +130,10 @@ inquirer.prompt([
             // callback function:
             function (err, result) {
                 console.log(err);
-                console.log(result.affectedRows + " user inserted!\n");
+                // console.log(result.affectedRows + " user inserted!\n");
 
             });
-        console.log(query.sql + "Sent info to DB");
+        console.log(query.sql + "User Saved, Enjoy Shopping!");
         findUserID();
     };
 
@@ -145,7 +145,7 @@ inquirer.prompt([
             },
             function (err, result) {
 
-                console.log("user_ID: " + result[0].user_id);
+                // console.log("user_ID: " + result[0].user_id);
                 user_ID = result[0].user_id
             });
 
@@ -217,7 +217,7 @@ function addProduct() {
                     addProduct();
                 }
 
-                console.log("YAY", chosenItem);
+                // console.log("YAY", chosenItem);
 
 
 
@@ -229,7 +229,7 @@ function addProduct() {
                
 
                 function addtoCart() {
-                    console.log("Adding product to you cart...\n");
+                    // console.log("Adding product to you cart.\n");
 
 
                     var query = connection.query(
@@ -245,13 +245,13 @@ function addProduct() {
                        
                         function (err, result) {
                             console.log(err);
-                            console.log(result.affectedRows + " New Product added!\n");
+                            // console.log(result.affectedRows + " New Product added!\n");
 
 
                         }
                     );
-
-                    console.log(query.sql);
+                    console.log("You added " + answer.numtobuy + " " + chosenItem.name);
+                    // console.log(query.sql);
                     reset();
                 }
             });
@@ -335,19 +335,19 @@ function sumFinalTotal() {
                 
             
         );
-console.log(query.sql);
+console.log(query.sql + "Your Cart Total is BELOW, Please Pay!!");
 
-for (var i = 0; i < INFO.length; i++) {
+// for (var i = 0; i < INFO.length; i++) {
 
-     finalTotalArray = new sumFinalTotal(INFO.total_price);
+//      finalTotalArray = new sumFinalTotal(INFO.total_price);
 
 
-        finalTotalArray.printInfo(INFO.total_price);
+//         finalTotalArray.printInfo(INFO.total_price);
                
-                console.log(finalTotalArray);
-                return finalTotalArray;
+//                 console.log(finalTotalArray);
+//                 return finalTotalArray;
                 
-};
+// };
 // query.connect(function(err) {
 //     if (err) throw err;
 //     //Select all cart items for current user and return the result object:
@@ -374,6 +374,6 @@ for (var i = 0; i < INFO.length; i++) {
 };
 
 app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+    // console.log("App listening on PORT " + PORT);
 });
 
